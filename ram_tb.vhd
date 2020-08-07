@@ -22,21 +22,20 @@ entity ram_tb is
 end ram_tb;
 
 architecture sim of ram_tb is
-	constant half_period : time := 1 ns;
-	signal clk     : std_logic := '0';
+   constant half_period : time := 1 ns;
+   signal clk     : std_logic := '0';
    signal wren    : std_logic;
    signal address : std_logic_vector(9 downto 0);
    signal wdata   : std_logic_vector(7 downto 0);
    signal rdata   : std_logic_vector(7 downto 0);
-   
-	component ram 
+   component ram 
 	port(
         clk     : in std_logic;
         wren    : in std_logic;
         address : in std_logic_vector(9 downto 0);
         wdata   : in std_logic_vector(7 downto 0);
         rdata   : out std_logic_vector(7 downto 0) );
-	end component;
+   end component;
 begin     
 	clk <= not clk after half_period;
 	
